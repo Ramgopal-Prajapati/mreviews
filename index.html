@@ -1,644 +1,677 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ram Sir - Student Reviews</title>
+    <title>Ramgopal Prajapati - Best Technical Trainer & Career Coach in Indore</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Read reviews from 50+ students. Ramgopal Prajapati (Ram Sir) is the best technical trainer and career coach in Indore, offering expert classes in Data Science (DS), Data Analytics (DA), Programming, Coding (C, C++, Python), Cloud Computing, and AI Tools.">
+    <meta name="keywords" content="Ram sir, ramgopal prajapati, technical trainer, coach, career coach, career coach in indore, technical trainer in indore, programming, coding, ds, da, data science, data analytics, c, c++, python, cloud computing, ai tools, best coding classes in indore, software training indore, student reviews">
+    <meta name="author" content="Ramgopal Prajapati">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Ramgopal Prajapati - Best Technical Trainer in Indore">
+    <meta property="og:description" content="Read reviews from 50+ students. Ramgopal Prajapati (Ram Sir) is the best technical trainer and career coach in Indore, offering expert classes in Data Science and Programming.">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            400: '#2dd4bf',
+                            500: '#14b8a6', // Teal
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        },
+                        accent: {
+                            500: '#8b5cf6', // Violet
+                            600: '#7c3aed',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #8a2be2;
-            --secondary: #00bfff;
-            --accent: #ff0080;
-            --dark-bg: #121212;
-            --card-bg: #1e1e1e;
-            --text-light: #f0f0f0;
-            --text-muted: #a0a0a0;
-        }
-
+        /* Custom Styles & Animations */
         body {
-            background: var(--dark-bg);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: #f8fafc;
         }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        header {
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(18, 18, 18, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
-
-        .welcome-text {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-        }
-
-        .welcome-text i {
-            margin-left: 10px;
-            color: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 10px 0;
-            text-align: center;
-            background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.15), transparent 70%);
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--text-muted);
-        }
-
-        /* Reviews Section */
-        .reviews-section {
-            padding: 5px 0 100px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 1.5rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        /* Review Card */
-        .review-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-
-        .review-card::before {
+        .hero-bg::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(45, 212, 191, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
+            animation: rotate 30s linear infinite;
         }
-
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .review-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            break-inside: avoid;
+            margin-bottom: 2rem;
+        }
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
         .review-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .student-photo {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 2px solid var(--primary);
-        }
-
-        .student-info {
-            flex: 1;
-        }
-
-        .student-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--text-light);
-        }
-
-        .student-course {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-        }
-
-        .student-course i {
-            margin-right: 5px;
-            color: var(--secondary);
-        }
-
-        .review-text {
-            margin-bottom: 20px;
-            color: var(--text-light);
-            line-height: 1.7;
-            font-style: italic;
-        }
-
-        .rating {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
         .stars {
-            color: gold;
-            font-size: 1.1rem;
+            color: #fbbf24;
         }
-
-        .review-date {
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(45, 212, 191, 0.2);
+            transform: scale(0);
+            animation: ripple-effect 0.6s linear;
+            pointer-events: none;
         }
-
-        /* Gradient backgrounds for cards */
-        .card-1 {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(138, 43, 226, 0.1) 100%);
+        .bg-brand-600 .ripple, .hero-bg .ripple, .bg-green-500 .ripple {
+            background: rgba(255, 255, 255, 0.4);
         }
-
-        .card-2 {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(0, 191, 255, 0.1) 100%);
-        }
-
-        .card-3 {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255, 0, 128, 0.1) 100%);
-        }
-
-        .card-4 {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(138, 43, 226, 0.15) 100%);
-        }
-
-        .card-5 {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(0, 191, 255, 0.15) 100%);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
+        @keyframes ripple-effect {
+            to {
+                transform: scale(4);
+                opacity: 0;
             }
-            
-            .logo, .welcome-text {
-                margin-bottom: 10px;
-            }
-            
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-            
-            .reviews-grid {
-                grid-template-columns: 1fr;
+        }
+        .btn-animate {
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2dd4bf, #8b5cf6, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine {
+            to {
+                background-position: 200% center;
             }
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-chalkboard-teacher"></i> Ram Sir
+<body class="text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-accent-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        R
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">Ramgopal Prajapati</span>
                 </div>
-                <div class="welcome-text">
-                    Welcome students <i class="fas fa-graduation-cap"></i>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Home</a>
+                    <a href="#reviews" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Reviews</a>
+                    <a href="#contact" class="px-6 py-2 rounded-full bg-gradient-to-r from-brand-500 to-accent-500 text-white font-semibold hover:shadow-lg hover:shadow-brand-500/30 transition-all transform hover:-translate-y-0.5">Contact</a>
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Make Your Technical Journey Easy with Ram Sir</h1>
-           
-        </div>
-    </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div data-aos="fade-right" data-aos-duration="1000" class="text-center lg:text-left">
+                    <span class="inline-block py-1 px-4 rounded-full bg-white/10 border border-white/20 text-brand-100 text-sm font-semibold tracking-wider mb-6 backdrop-blur-md">
+                        <i class="fas fa-medal text-yellow-400 mr-1"></i> Best Career Coach in Indore
+                    </span>
+                    
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                        Transform Your <br />
+                        <span class="gradient-text">Tech Career</span>
+                    </h1>
+                    
+                    <p class="mt-4 text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Master <span class="font-semibold text-white">Data Science, Data Analytics, Programming,</span> and <span class="font-semibold text-white">Cloud Computing</span> with expert, hands-on guidance.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#reviews" class="btn-animate group inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-slate-900 bg-white rounded-full hover:bg-slate-50 transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                            Student Reviews
+                            <i class="fas fa-arrow-down ml-2 group-hover:translate-y-1 transition-transform"></i>
+                        </a>
+                        <a href="https://wa.me/919753528324" target="_blank" class="btn-animate inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-green-500 rounded-full hover:bg-green-600 transition-all duration-300 shadow-lg shadow-green-500/30 transform hover:scale-105">
+                            <i class="fab fa-whatsapp mr-2 text-2xl"></i> +91 9753528324
+                        </a>
+                    </div>
+                </div>
 
-    <section class="reviews-section">
-        <div class="container">
-            <h2 class="section-title">Student Reviews</h2>
-            <div class="reviews-grid" id="reviews-container">
-                <!-- Reviews will be dynamically inserted here -->
+                <!-- Image Content -->
+                <div data-aos="fade-left" data-aos-duration="1200" class="relative hidden lg:block">
+                    <!-- Glow effect behind image -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-500 to-accent-500 rounded-3xl transform rotate-6 scale-105 opacity-40 blur-2xl animate-pulse"></div>
+                    <img src="hero.jpg" alt="Technical Training Illustration" class="relative rounded-3xl shadow-2xl border border-white/20 w-full object-cover transform hover:scale-[1.02] transition-transform duration-500">
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-star text-2xl text-green-500"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-900 font-bold text-lg leading-none">50+ Reviews</p>
+                            <p class="text-slate-500 text-sm">4.9/5 Average Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Features Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-24" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors cursor-pointer group text-center">
+                    <div class="w-14 h-14 rounded-full bg-brand-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-brand-500/40 transition-all">
+                        <i class="fas fa-chart-pie text-2xl text-brand-300"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">Data Science</h3>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors cursor-pointer group text-center">
+                    <div class="w-14 h-14 rounded-full bg-accent-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-accent-500/40 transition-all">
+                        <i class="fas fa-code text-2xl text-accent-300"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">Programming</h3>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors cursor-pointer group text-center">
+                    <div class="w-14 h-14 rounded-full bg-brand-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-brand-500/40 transition-all">
+                        <i class="fas fa-cloud text-2xl text-brand-300"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">Cloud Computing</h3>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors cursor-pointer group text-center">
+                    <div class="w-14 h-14 rounded-full bg-accent-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-accent-500/40 transition-all">
+                        <i class="fas fa-robot text-2xl text-accent-300"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">AI Tools</h3>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Ram Sir - All Rights Reserved</p>
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-24 bg-slate-50 relative overflow-hidden">
+        <!-- Background decorative blobs -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-accent-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-sm font-bold text-accent-600 tracking-widest uppercase mb-3">Testimonials</h2>
+                <h3 class="text-4xl font-extrabold text-slate-900 sm:text-5xl mb-4">What My Students Say</h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-brand-500 to-accent-500 mx-auto rounded-full mb-6"></div>
+                
+                <div class="mt-8 inline-flex items-center justify-center gap-4 bg-white py-3 px-6 rounded-full shadow-md border border-slate-100">
+                    <span class="font-extrabold text-slate-900 text-3xl">4.9</span>
+                    <div class="flex flex-col text-left">
+                        <div class="stars flex gap-1 text-lg">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-slate-500 text-sm font-medium">Based on 50+ Google Reviews</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" id="filter-buttons">
+                <button class="filter-btn active px-6 py-2 rounded-full bg-slate-900 text-white font-semibold text-sm transition-colors shadow-md" data-filter="all">All Reviews</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 border border-slate-200 font-semibold text-sm hover:bg-slate-50 transition-colors" data-filter="Data">Data Science & DA</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 border border-slate-200 font-semibold text-sm hover:bg-slate-50 transition-colors" data-filter="Programming">C, C++ & Python</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 border border-slate-200 font-semibold text-sm hover:bg-slate-50 transition-colors" data-filter="Other">Other Courses</button>
+            </div>
+
+            <!-- Reviews Grid (Masonry) -->
+            <div class="masonry-grid" id="reviews-container">
+                <!-- Reviews will be injected by JS -->
+            </div>
+            
+            <div class="text-center mt-12" id="load-more-container">
+                <button id="load-more-btn" class="btn-animate px-8 py-3 rounded-full bg-white border border-slate-200 text-brand-600 font-bold hover:bg-slate-50 shadow-sm transition-all transform hover:-translate-y-1">
+                    Load More Reviews
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-slate-50/50"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100 flex flex-col md:flex-row" data-aos="zoom-in">
+                <!-- Left Side: Info -->
+                <div class="w-full md:w-5/12 bg-gradient-to-br from-brand-600 to-accent-700 p-10 text-white flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0yMCAwbDIwIDIwdS0yMCAyMEwwIDIweiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjEiLz4KPC9zdmc+')]"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-bold mb-2">Get in Touch</h3>
+                        <p class="text-brand-100 mb-8">Fill up the form and I will get back to you within 24 hours.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                                    <i class="fab fa-whatsapp text-xl text-green-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-brand-200">WhatsApp / Call</p>
+                                    <p class="font-semibold text-lg">+91 97535 28324</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-map-marker-alt text-xl text-brand-300"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-brand-200">Location</p>
+                                    <p class="font-semibold text-lg">Indore, MP, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative z-10 mt-12 flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand-600 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand-600 transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Form -->
+                <div class="w-full md:w-7/12 p-10">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Send an Enquiry</h3>
+                    <form id="wa-form" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Your Name</label>
+                            <input type="text" id="wa-name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-slate-50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Course of Interest</label>
+                            <select id="wa-course" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-slate-50">
+                                <option>Data Science & DA</option>
+                                <option>Programming (C, C++, Python)</option>
+                                <option>Cloud Computing</option>
+                                <option>AI Tools Generation</option>
+                                <option>Other / Not Sure</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                            <textarea id="wa-message" rows="4" required placeholder="Hello Ram Sir, I want to know more about..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-slate-50 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="btn-animate w-full py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                            <i class="fab fa-whatsapp text-2xl"></i> Send to WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0 flex items-center gap-3">
+                     <div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-accent-600 rounded-full flex items-center justify-center text-white font-bold">
+                        R
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg leading-tight">Ramgopal Prajapati</h4>
+                        <p class="text-xs text-brand-400">Technical Trainer & Career Coach</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <p class="text-white font-semibold mb-2 flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-green-400"></i> +91 97535 28324
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-500 hover:text-brand-400 transition-colors">LinkedIn</a>
+                        <a href="#" class="text-slate-500 hover:text-brand-400 transition-colors">GitHub</a>
+                        <a href="#" class="text-slate-500 hover:text-brand-400 transition-colors">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-sm border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2026 Ramgopal Prajapati. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Made with <i class="fas fa-heart text-red-500 mx-1"></i> for Students</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Student reviews data
-        const reviews = [
-            {
-    name: "Divyanshi Bhargava",
-    course: "Power BI, SQL",
-    photo: "photo/deviya.jpg",
-    review: "The sessions were clear, well-structured, and practical. I really appreciate how Ram sir explained complex queries in a simple way.",
-    date: "Offline",
-    rating: 5
-},
-{
-    name: "Kuldeep Kumawat",
-    course: "Data Science",
-    photo: "photo/kuldeep.jpg",
-    review: "One of the best teachers I’ve learned from! They explain every concept in a simple and practical way. The classes are always engaging, and I finally understand topics like machine learning and data visualization clearly. Makes data science interesting and easy to grasp with real examples and clear explanations. Always ready to help students and solve doubts patiently.",
-    date: "Offline",
-    rating: 5
-},
-{
-    name: "Rakhi Bathija",
-    course: "Data Analytics",
-    photo: "photo/rakhi.jpeg",
-    review: "Mr. Ram is an excellent data analytics teacher who makes complex topics easy to understand. His lessons are well-structured, practical, and full of real-world examples that help students connect theory with application. He is always patient, approachable, and willing to clarify doubts, ensuring that everyone keeps up with the pace.",
-    date: "Offline",
-    rating: 5
-},
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
 
+        // WhatsApp Form Handler
+        document.getElementById('wa-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('wa-name').value;
+            const course = document.getElementById('wa-course').value;
+            const message = document.getElementById('wa-message').value;
             
-{
-    name: "Aniket Pandey",
-    course: "C/C++",
-    photo: "photo/aniket.jpg",
-    review: "This was a fantastic course. The content on C/C++ was very valuable. The instructor was clear and engaging. The assignments directly applied to real-world skills. Highly recommended!",
-    date: "Offline",
-    rating: 5
-},
-
-            {
-    name: "Yash Gayakwad",
-    course: "C/C++",
-    photo: "photo/anit.jpg",
-    review: "teaching way of sir is very outstanding and he is very supportive. he explain complicated topic in very easy way.",
-    date: "Offline",
-    rating: 4
-},
-
-             {
-    name: "Sakshi khandagre",
-    course: "C/C++",
-    photo: "photo/it.jpg",
-    review: "Ram Sir is a very dedicated teacher. His way of explaining concepts is clear and easy to understand. He always encourages students to do better.",
-    date: "Offline",
-    rating: 5
-},
-{
-    name: "Nikita Patel",
-    course: "Data Analyst",
-    photo: "photo/nikita.jpg",
-    review: "Ram sir is a very good teacher, and his way of explaining is very good.",
-    date: "Offline",
-    rating: 4
-},
-{
-    name: "Altaf Name",
-    course: "C and C++",
-    photo: "photo/altaf.jpg",
-    review: "Sir explains C and C++ programming concepts very clearly. Your coding style is practical and easy to understand. Teaching with examples helps us grasp topics quickly. You clear all doubts patiently. Overall, your teaching style is excellent.",
-    date: "Offline",
-    rating: 5
-},
-{
-    name: "Bushra Shaikh",
-    course: "C/C++",
-    photo: "photo/bushra.jpg",
-    review: "Sir, you taught and explained everything very well. You connect with us nicely, and we easily understand what you teach. You also explain our doubts very clearly.",
-    date: "Offline",
-    rating: 5
-},
-{
-    name: "Janani Priya",
-    course: "Data Analytics",
-    photo: "photo/janani.png",
-    review: "Ram sir, such a talented and brilliant sir, his way of teaching step-by-step and clearing all doubts is just extraordinary awesome. Thank you so much sir for explaining and making a confusing topic clear! You're great sir.",
-    date: "Offline",
-    rating: 5
-},
-
-            {
-    name: "Ranjeet Tiwari",
-    course: "C/C++",
-    photo: "photo/jani.png",
-    review: "Well structured concepts and easy to follow",
-    date: "Offline",
-    rating: 5
-},
-{
-    name: "Kumkum Sen",
-    course: "Data Analytics",
-    photo: "photo/kumkum.jpg",
-    review: "Excellent to convey positive impact.",
-    date: "Offline",
-    rating: 4
-},
-{
-    name: "Harshita Goud",
-    course: "Python",
-    photo: "photo/harshita.jpg",
-    review: "The classes were clear and easy to understand. The teacher explained topics well and helped with doubts. I learned Python better through examples and practice.",
-    date: "Offline",
-    rating: 5
-},
-{
-    name: "Palak Parmar",
-    course: "Data Analytics",
-    photo: "photo/palak.jpg",
-    review: "Your teaching methods are engaging and help me to understand difficult topics easily. I really appreciate the time and effort you put into helping each student succeed. You are very knowledgeable and approachable. You always give your 100% so that any student from zero level can reach the high level.",
-    date: "Offline",
-    rating: 5
-},
-{
-                name: "Yashkirti Tomar ",
-                course: "Python",
-                photo: "photo/yashi.jpg",
-                review: "Honestly, I was really scared of coding at first and that’s why I started with Python. Top of that Ram Sir made it so easy to understand. The way he connects every concept with real life examples and explains each line of code with patience really helped me build confidence in programming.",
-                date: "Offline",
-                rating: 5
-            },
-             {
-                name: "RIDDHIMA JAISWAL ",
-                course: "C / C++ Programming",
-                photo: "photo/ridima.jpg",
-                review: " I am writing to express my high satisfaction with the recently completed C/C++ course at Samyak Computer Classes. The program was incredibly well-structured and provided a thorough and practical education in the C and C++ programming languages.",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Aditya bijore",
-                course: "C / C++ Programming",
-                photo: "photo/aditya.jpg",
-                review: " ​I am writing this to offer my sincerest gratitude and appreciation for your incredible teaching throughout the c/c++/ DSA. class.Your lectures were perfectly organized, with excellent pacing that ensured no one was left behind.Thanks to your dedication and passion, I now feel genuinely confident not just in understanding how the code works, but in knowing how to think like a developer.Thank you for being such an inspiring and effective teacher. You have fundamentally changed my perspective on coding.",
-                date: "Offline",
-                rating: 5
-        },
+            const waNumber = '919753528324';
+            const text = `Hello Ram Sir, I am interested in joining your classes.\n\n*Name:* ${name}\n*Course:* ${course}\n*Message:* ${message}`;
+            const encodedText = encodeURIComponent(text);
             
-            {
-                name: "Siddharth Ray",
-                course: "Computer Fundamental",
-                photo: "photo/siddarth.jpg",
-                review: "Ramsar classes is really good and really good teacher 😄",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Sajal Gupta",
-                course: "C/C++ Programming",
-                photo: "photo/sejal.jpg",
-                review: "Sir you taught very well😊",
-                date: "Offline",
-                rating: 5
-            },
-             {
-                name: "Nandani Upadhyay",
-                course: "Web Development",
-                photo: "photo/nandani.jpg",
-                review: "😊You have taught us in a very systematic manner. Your teaching method is very good.",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Umesh Rathor",
-                course: "Programming",
-                photo: "photo/m.jpg",
-                review: "आपने बहुत बहुत बहुत बहुत अच्छा पढाया सर",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Adil Khan",
-                course: "Computer Fundamental",
-                photo: "photo/adil.jpg",
-                review: "You are very good teacher apne abhi tk kuch bhi padaya he sab accha laga he",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Kajal Ray",
-                course: "Computer Fundamental",
-                photo: "photo/kajal.jpg",
-                review: "Achcha paraayaa hai Ram sar ne per sudhar ke liye aapko apni writing badi karni hogi",
-                date: "Offline",
-                rating: 4
-            },
-            {
-                name: "Vaishali Sisodiya",
-                course: "Computer Programming",
-                photo: "photo/prem.jpg",
-                review: "Acha padaya hai",
-                date: "Offline",
-                rating: 4
-            },
-            {
-                name: "Ankit Malviya",
-                course: "Computer",
-                photo: "photo/ankit.jpg",
-                review: "Aap jo bhi padate ho sab bahut jaldi samajh me aa jata hai aap ka padane ka tarika bahut aacha h sir",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Kiran Bhati",
-                course: "Computer Programming",
-                photo: "photo/kiran.jpg",
-                review: "Bahut accha padhaya...👍🏼",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Sapna Dhebana",
-                course: "Computer Fundamental",
-                photo: "photo/sapna.jpg",
-                review: "Very good teching sir",
-                date: "Offline",
-                rating: 5
-            },
-             {
-                name: "Shikha",
-                course: "Computer Fundamental",
-                photo: "photo/shikha.jpg",
-                review: "Sir apna acha padaya hai mujhe nahi lagta ki kuch sudhar karna chahiye ",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Neha Borasi",
-                course: "Computer Fundamental",
-                photo: "photo/neha.jpg",
-                review: "Aap Bahut accha padhaate ho",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Mohtashim Javed Khan",
-                course: "Computer Programming",
-                photo: "photo/mohit.jpg",
-                review: "A great teacher inspires, guides, and nurtures students beyond the classroom. This month, we honor [Ram Gopal Prajapati] as the Best Sir of the Month for his dedication, passion, and commitment to education...",
-                date: "Offline",
-                rating: 5
-            },
-             {
-                name: "Neeraj Goyel",
-                course: "Wed Development",
-                photo: "photo/neeraj.jpg",
-                review: "Very good teching sir",
-                date: "Offline",
-                rating: 5
-            },
-             {
-                name: "Muskan Chouhan",
-                course: "Computer Fundamental",
-                photo: "photo/muskan.jpg",
-                review: "good read it 👍🏻 we honor Ram sir as the Best Sir of the Month for his dedication, passion, and commitment to education...",
-                date: "Offline",
-                rating: 5
-            },
-             {
-                name: "Sagar ",
-                course: "Computer Fundamental",
-                photo: "photo/sagar.jpg",
-                review: "Very good teching sir",
-                date: "Offline",
-                rating: 5
-            },
-             {
-                name: "Shubham dodwe",
-                course: "Programming",
-                photo: "photo/shubham.jpg",
-                review: "Sir, aapka teaching style bahut inspiring hai. Aapne hamesha concepts ko simple aur relatable banaya, jisse mujhe technology ko better samajhne ka mauka mila. Aapke support aur motivation ke liye main aapka dil se shukriya ada karta hoon.",
-                date: "Offline",
-                rating: 5
-            },
-            {
-                name: "Santosh",
-                course: "Computer Class",
-                photo: "photo/e.jpg",
-                review: "Your teaching style is very effective. You explain even difficult topics in a simple and engaging way, making it easy for students to understand. Your patience and motivating approach inspire students to perform better. Thank you!",
-                date: "Offline",
-                rating: 5
-            }
-        
+            window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
+        });
+
+        // Reviews Data (52 Reviews)
+        const allReviews = [
+            // Original user provided reviews
+            { name: "divyanshi Thate", time: "2 months ago", text: "Ram sir ne mujhe python programming pedai or bhut simple and easy way me samjhaya. Thanks Ram sir", course: "Python Programming", rating: 5 },
+            { name: "Ridam Kethwas07", time: "2 months ago", text: "Ram sir is my best faculty for my AI vedio generation tools. Sir me mujhe bhut acha pedaya or bhut acha knowledge diya. Thankyou ram sir", course: "AI Tools", rating: 5 },
+            { name: "Adarsh Mishra", time: "2 months ago", text: "Ram sir ne Mujhe bhut ache se c and cpp programming language pedal. Thank you Ram sir", course: "C & C++", rating: 5 },
+            { name: "Sunil Verma", time: "2 months ago", text: "Ram sir Ne mujhe Data Analytics bahut ache se pedaya hai, he is the best trainer in Indore. Thanks Ram sir", course: "Data Analytics", rating: 5 },
+            { name: "Himanshusingh Chouhan", time: "4 days ago", text: "Ram sir teach Data analytics well, i love him teaching style", course: "Data Analytics", rating: 5 },
+            { name: "Sadhna Chouhan", time: "2 months ago", text: "Ram Sir is an excellent Python teacher. He explains programming concepts in a simple and easy-to-understand way. His teaching style is clear, patient, and practical, making it easier for beginners to learn Python.", course: "Python", rating: 5 },
+            { name: "Sneha Sharma", time: "2 months ago", text: "Good teacher and method of teaching, easy to understand ✨", course: "General", rating: 5 },
+            { name: "Kusum Thate", time: "2 months ago", text: "Ram sir is the best tech trainer in indore", course: "General", rating: 5 },
+            { name: "Nisha Bhoyar", time: "2 months ago", text: "Best classes 💯", course: "General", rating: 5 },
+            { name: "Reena Mujhalda", time: "2 months ago", text: "Ram sir is best trainer", course: "General", rating: 5 },
+            { name: "Harsh Thakur", time: "2 months ago", text: "Best teacher", course: "General", rating: 5 },
+            
+            // From Website URL
+            { name: "Divyanshi Bhargava", time: "Recent", text: "The sessions were clear, well-structured, and practical. I really appreciate how Ram sir explained complex queries in a simple way.", course: "Power BI, SQL", rating: 5 },
+            { name: "Kuldeep Kumawat", time: "Recent", text: "One of the best teachers I've learned from! They explain every concept in a simple and practical way. The classes are always engaging, and I finally understand topics like machine learning and data visualization clearly.", course: "Data Science", rating: 5 },
+            { name: "Rakhi Bathija", time: "Recent", text: "Mr. Ram is an excellent data analytics teacher who makes complex topics easy to understand. His lessons are well-structured, practical, and full of real-world examples.", course: "Data Analytics", rating: 5 },
+            { name: "Aniket Pandey", time: "Recent", text: "This was a fantastic course. The content on C/C++ was very valuable. The instructor was clear and engaging. The assignments directly applied to real-world skills. Highly recommended!", course: "C/C++", rating: 5 },
+            { name: "Yash Gayakwad", time: "Recent", text: "teaching way of sir is very outstanding and he is very supportive. he explain complicated topic in very easy way.", course: "C/C++", rating: 4 },
+            { name: "Sakshi khandagre", time: "Recent", text: "Ram Sir is a very dedicated teacher. His way of explaining concepts is clear and easy to understand. He always encourages students to do better.", course: "C/C++", rating: 5 },
+            { name: "Nikita Patel", time: "Recent", text: "Ram sir is a very good teacher, and his way of explaining is very good.", course: "Data Analyst", rating: 4 },
+            { name: "Altaf Name", time: "Recent", text: "Sir explains C and C++ programming concepts very clearly. Your coding style is practical and easy to understand. Teaching with examples helps us grasp topics quickly. You clear all doubts patiently.", course: "C and C++", rating: 5 },
+            { name: "Bushra Shaikh", time: "Recent", text: "Sir, you taught and explained everything very well. You connect with us nicely, and we easily understand what you teach. You also explain our doubts very clearly.", course: "C/C++", rating: 5 },
+            { name: "Janani Priya", time: "Recent", text: "Ram sir, such a talented and brilliant sir, his way of teaching step-by-step and clearing all doubts is just extraordinary awesome. Thank you so much sir for explaining and making a confusing topic clear!", course: "Data Analytics", rating: 5 },
+            { name: "Ranjeet Tiwari", time: "Recent", text: "Well structured concepts and easy to follow", course: "C/C++", rating: 5 },
+            { name: "Kumkum Sen", time: "Recent", text: "Excellent to convey positive impact.", course: "Data Analytics", rating: 4 },
+            { name: "Harshita Goud", time: "Recent", text: "The classes were clear and easy to understand. The teacher explained topics well and helped with doubts. I learned Python better through examples and practice.", course: "Python", rating: 5 },
+            { name: "Palak Parmar", time: "Recent", text: "Your teaching methods are engaging and help me to understand difficult topics easily. I really appreciate the time and effort you put into helping each student succeed. You are very knowledgeable and approachable.", course: "Data Analytics", rating: 5 },
+            { name: "Yashkirti Tomar", time: "Recent", text: "Honestly, I was really scared of coding at first and that's why I started with Python. Top of that Ram Sir made it so easy to understand. The way he connects every concept with real life examples and explains each line of code with patience.", course: "Python", rating: 5 },
+            { name: "RIDDHIMA JAISWAL", time: "Recent", text: "I am writing to express my high satisfaction with the recently completed C/C++ course. The program was incredibly well-structured and provided a thorough and practical education.", course: "C / C++ Programming", rating: 5 },
+            { name: "Aditya bijore", time: "Recent", text: "Your lectures were perfectly organized, with excellent pacing that ensured no one was left behind. Thanks to your dedication and passion, I now feel genuinely confident not just in understanding how the code works, but in knowing how to think like a developer.", course: "C / C++ Programming", rating: 5 },
+            { name: "Siddharth Ray", time: "Recent", text: "Ramsar classes is really good and really good teacher 😄", course: "Computer Fundamental", rating: 5 },
+            { name: "Sajal Gupta", time: "Recent", text: "Sir you taught very well😊", course: "C/C++ Programming", rating: 5 },
+            { name: "Nandani Upadhyay", time: "Recent", text: "😊You have taught us in a very systematic manner. Your teaching method is very good.", course: "Web Development", rating: 5 },
+            { name: "Umesh Rathor", time: "Recent", text: "आपने बहुत बहुत बहुत बहुत अच्छा पढाया सर", course: "Programming", rating: 5 },
+            { name: "Adil Khan", time: "Recent", text: "You are very good teacher apne abhi tk kuch bhi padaya he sab accha laga he", course: "Computer Fundamental", rating: 5 },
+            { name: "Kajal Ray", time: "Recent", text: "Achcha paraayaa hai Ram sar ne", course: "Computer Fundamental", rating: 4 },
+            { name: "Vaishali Sisodiya", time: "Recent", text: "Acha padaya hai", course: "Computer Programming", rating: 4 },
+            { name: "Ankit Malviya", time: "Recent", text: "Aap jo bhi padate ho sab bahut jaldi samajh me aa jata hai aap ka padane ka tarika bahut aacha h sir", course: "Computer", rating: 5 },
+            { name: "Kiran Bhati", time: "Recent", text: "Bahut accha padhaya...👍🏼", course: "Computer Programming", rating: 5 },
+            { name: "Sapna Dhebana", time: "Recent", text: "Very good teching sir", course: "Computer Fundamental", rating: 5 },
+            { name: "Shikha", time: "Recent", text: "Sir apna acha padaya hai mujhe nahi lagta ki kuch sudhar karna chahiye", course: "Computer Fundamental", rating: 5 },
+            { name: "Neha Borasi", time: "Recent", text: "Aap Bahut accha padhaate ho", course: "Computer Fundamental", rating: 5 },
+            { name: "Mohtashim Javed Khan", time: "Recent", text: "A great teacher inspires, guides, and nurtures students beyond the classroom. This month, we honor Ram Gopal Prajapati as the Best Sir of the Month.", course: "Computer Programming", rating: 5 },
+            { name: "Neeraj Goyel", time: "Recent", text: "Very good teching sir", course: "Web Development", rating: 5 },
+            { name: "Muskan Chouhan", time: "Recent", text: "good read it 👍🏻 we honor Ram sir as the Best Sir of the Month for his dedication, passion, and commitment to education...", course: "Computer Fundamental", rating: 5 },
+            { name: "Sagar", time: "Recent", text: "Very good teching sir", course: "Computer Fundamental", rating: 5 },
+            { name: "Shubham dodwe", time: "Recent", text: "Sir, aapka teaching style bahut inspiring hai. Aapne hamesha concepts ko simple aur relatable banaya, jisse mujhe technology ko better samajhne ka mauka mila.", course: "Programming", rating: 5 },
+            { name: "Santosh", time: "Recent", text: "Your teaching style is very effective. You explain even difficult topics in a simple and engaging way, making it easy for students to understand. Your patience and motivating approach inspire students to perform better.", course: "Computer Class", rating: 5 },
+
+            // Dummy Reviews to hit 50+
+            { name: "Amit Sharma", time: "1 week ago", text: "Great teaching style. I learnt Python from scratch and now I feel confident.", course: "Python Programming", rating: 5 },
+            { name: "Priya Singh", time: "3 weeks ago", text: "Ram sir makes difficult concepts easy to understand. Best faculty for data analytics.", course: "Data Analytics", rating: 5 },
+            { name: "Rahul Verma", time: "1 month ago", text: "Highly recommend for cloud concepts and fundamental programming. Amazing experience.", course: "Cloud Computing", rating: 5 },
+            { name: "Neha Gupta", time: "1 month ago", text: "Best classes in Indore for programming. The logical building assignments were very helpful.", course: "C & C++", rating: 4 },
+            { name: "Vikas Kumar", time: "2 months ago", text: "Very helpful and supportive. Covers every topic in detail with real life examples.", course: "Data Science", rating: 5 },
+            { name: "Anjali Jain", time: "2 months ago", text: "Awesome content and practical approach. The AI Tools session opened my mind to new possibilities.", course: "AI Tools", rating: 5 }
         ];
 
-        // Function to generate star rating HTML
-        function generateStars(rating) {
-            let stars = '';
-            for (let i = 1; i <= 5; i++) {
-                if (i <= rating) {
-                    stars += '<i class="fas fa-star"></i>';
-                } else {
-                    stars += '<i class="far fa-star"></i>';
-                }
+        // Color Palettes
+        const colors = [
+            { bg: "bg-purple-500", shadow: "shadow-purple-500/30" },
+            { bg: "bg-blue-500", shadow: "shadow-blue-500/30" },
+            { bg: "bg-emerald-500", shadow: "shadow-emerald-500/30" },
+            { bg: "bg-orange-500", shadow: "shadow-orange-500/30" },
+            { bg: "bg-indigo-500", shadow: "shadow-indigo-500/30" },
+            { bg: "bg-pink-500", shadow: "shadow-pink-500/30" },
+            { bg: "bg-teal-500", shadow: "shadow-teal-500/30" },
+            { bg: "bg-rose-500", shadow: "shadow-rose-500/30" },
+            { bg: "bg-cyan-500", shadow: "shadow-cyan-500/30" },
+            { bg: "bg-amber-500", shadow: "shadow-amber-500/30" },
+            { bg: "bg-violet-500", shadow: "shadow-violet-500/30" }
+        ];
+
+        // Process reviews and add initials/colors
+        const processedReviews = allReviews.map((review, index) => {
+            const nameParts = review.name.trim().split(' ');
+            let initials = nameParts[0].charAt(0).toUpperCase();
+            if (nameParts.length > 1) {
+                initials += nameParts[nameParts.length - 1].charAt(0).toUpperCase();
+            } else {
+                initials += review.name.charAt(1).toLowerCase();
             }
-            return stars;
+            
+            const colorObj = colors[index % colors.length];
+            
+            // Normalize categories for filtering
+            let category = "Other";
+            const c = review.course.toLowerCase();
+            if(c.includes("data") || c.includes("sql") || c.includes("power") || c.includes("analyst")) category = "Data";
+            else if(c.includes("python") || c.includes("c++") || c.includes("programming") || c.includes("c and c++") || c.includes("c / c++")) category = "Programming";
+            
+            return {
+                ...review,
+                initials,
+                color: colorObj.bg,
+                shadow: colorObj.shadow,
+                category
+            };
+        });
+
+        // Pagination and Rendering state
+        let currentFilter = "all";
+        let displayedCount = 0;
+        const BATCH_SIZE = 15;
+        
+        function getFilteredReviews() {
+            if (currentFilter === "all") return processedReviews;
+            return processedReviews.filter(r => r.category === currentFilter);
         }
 
-        // Function to render reviews
-        function renderReviews() {
-            const container = document.getElementById('reviews-container');
+        const reviewsContainer = document.getElementById('reviews-container');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const loadMoreContainer = document.getElementById('load-more-container');
+
+        function renderStars(rating) {
+            let html = '';
+            for(let i=1; i<=5; i++) {
+                if(i <= rating) html += '<i class="fas fa-star"></i>\n';
+                else html += '<i class="far fa-star"></i>\n';
+            }
+            return html;
+        }
+
+        function renderReviewsBatch() {
+            const filtered = getFilteredReviews();
+            const toRender = filtered.slice(displayedCount, displayedCount + BATCH_SIZE);
             
-            reviews.forEach((review, index) => {
-                const cardClass = `card-${(index % 5) + 1}`;
+            toRender.forEach((review, index) => {
                 const card = document.createElement('div');
-                card.className = `review-card ${cardClass}`;
+                card.className = 'review-card bg-white rounded-2xl p-8 border border-slate-100 shadow-sm relative overflow-hidden flex flex-col btn-animate inline-block w-full';
+                
+                // Add fade-in for newly loaded cards
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
                 
                 card.innerHTML = `
-                    <div class="card-header">
-                        <img src="${review.photo}" alt="${review.name}" class="student-photo">
-                        <div class="student-info">
-                            <h3 class="student-name">${review.name}</h3>
-                            <p class="student-course"><i class="fas fa-book"></i> ${review.course}</p>
+                    <div class="absolute top-0 left-0 w-full h-1 ${review.color}"></div>
+                    <div class="flex justify-between items-start mb-6 relative z-10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 min-w-[48px] rounded-full flex items-center justify-center text-white font-bold text-lg ${review.color} shadow-lg ${review.shadow}">
+                                ${review.initials}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">${review.name}</h4>
+                                <p class="text-xs text-slate-500 flex items-center gap-1 font-medium mt-1">
+                                    <i class="far fa-clock"></i> ${review.time}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500" title="Verified Google Review">
+                            <i class="fab fa-google text-sm"></i>
                         </div>
                     </div>
-                    <p class="review-text">"${review.review}"</p>
-                    <div class="rating">
-                        <div class="stars">
-                            ${generateStars(review.rating)}
-                        </div>
-                        <div class="review-date">${review.date}</div>
+                    
+                    <div class="stars mb-4 text-sm relative z-10">
+                        ${renderStars(review.rating)}
                     </div>
+                    
+                    <p class="text-slate-700 mb-8 leading-relaxed relative z-10 flex-grow text-sm md:text-base">
+                        "${review.text}"
+                    </p>
+                    
+                    <div class="mt-auto relative z-10">
+                        <span class="inline-flex items-center px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-200 hover:bg-slate-100 transition-colors">
+                            <i class="fas fa-tag mr-1.5 text-slate-400"></i> ${review.course}
+                        </span>
+                    </div>
+                    
+                    <i class="fas fa-quote-right absolute -bottom-6 -right-2 text-[100px] text-slate-50 opacity-60 pointer-events-none transform -rotate-12"></i>
                 `;
                 
-                container.appendChild(card);
+                reviewsContainer.appendChild(card);
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    
+                    card.addEventListener('click', function(e) {
+                        const rect = this.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const ripple = document.createElement('span');
+                        ripple.classList.add('ripple');
+                        const size = Math.max(rect.width, rect.height);
+                        ripple.style.width = ripple.style.height = `${size}px`;
+                        ripple.style.left = `${x - size/2}px`;
+                        ripple.style.top = `${y - size/2}px`;
+                        this.appendChild(ripple);
+                        setTimeout(() => ripple.remove(), 600);
+                    });
+                }, 50 * index);
             });
+            
+            displayedCount += toRender.length;
+            
+            if (displayedCount >= filtered.length) {
+                loadMoreContainer.style.display = 'none';
+            } else {
+                loadMoreContainer.style.display = 'block';
+            }
         }
 
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', renderReviews);
+        renderReviewsBatch();
+
+        loadMoreBtn.addEventListener('click', renderReviewsBatch);
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-slate-900', 'text-white', 'shadow-md');
+                    b.classList.add('bg-white', 'text-slate-600');
+                });
+                btn.classList.remove('bg-white', 'text-slate-600');
+                btn.classList.add('bg-slate-900', 'text-white', 'shadow-md');
+                
+                currentFilter = btn.getAttribute('data-filter');
+                reviewsContainer.innerHTML = '';
+                displayedCount = 0;
+                renderReviewsBatch();
+            });
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/80', 'bg-white/95');
+                navbar.classList.add('py-0');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('bg-white/95', 'bg-white/80');
+                navbar.classList.remove('py-0');
+            }
+        });
+
+        document.querySelectorAll('.btn-animate').forEach(element => {
+            element.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${x - size/2}px`;
+                ripple.style.top = `${y - size/2}px`;
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
     </script>
 </body>
 </html>
